@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    android:compileSdkVersion="34"
+    android:compileSdkVersionCodename="14"
+    package="com.oxxygenr.namusic"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Allows the app to prevent the phone from going to sleep. -->
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+    <!-- Allows the app to read the contents of your shared storage. -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Allows the app to write the contents of your shared storage. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Allows the app to create network sockets and use custom network protocols. The browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet. -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <!-- Allows the app to view information about network connections such as which networks exist and are connected. -->
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows the app to send sticky broadcasts, which remain after the broadcast ends. Excessive use may make the phone slow or unstable by causing it to use too much memory. -->
+    <uses-permission
+        android:name="android.permission.BROADCAST_STICKY" />
+    <!-- Allows the app to modify the system's settings data. Malicious apps may corrupt your system's configuration. -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS" />
+    <!-- Allows the app to have itself started as soon as the system has finished booting. This can make it take longer to start the phone and allow the app to slow down the overall phone by always running. -->
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Allows the user to purchase items through Google Play from within this app. -->
+    <uses-permission
+        android:name="com.android.vending.BILLING" />
+    <!-- Allows the app to make use of foreground services. -->
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE" />
+    <application
+        android:theme="@style/Theme.Phonograph.Light"
+        android:label="NaMusic"
+        android:icon="@mipmap/ic_launcher"
+        android:name="com.kabouzeid.gramophone.App"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.MainActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="android.intent.action.MUSIC_PLAYER" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+                <category
+                    android:name="android.intent.category.APP_MUSIC" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="content" />
+                <data
+                    android:mimeType="audio/*" />
+                <data
+                    android:mimeType="application/ogg" />
+                <data
+                    android:mimeType="application/x-ogg" />
+                <data
+                    android:mimeType="application/itunes" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="file" />
+                <data
+                    android:mimeType="audio/*" />
+                <data
+                    android:mimeType="application/ogg" />
+                <data
+                    android:mimeType="application/x-ogg" />
+                <data
+                    android:mimeType="application/itunes" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="http" />
+                <data
+                    android:mimeType="audio/*" />
+                <data
+                    android:mimeType="application/ogg" />
+                <data
+                    android:mimeType="application/x-ogg" />
+                <data
+                    android:mimeType="application/itunes" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:mimeType="vnd.android.cursor.dir/playlist" />
+                <data
+                    android:mimeType="vnd.android.cursor.dir/albums" />
+                <data
+                    android:mimeType="vnd.android.cursor.dir/artists" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="com.cyanogenmod.eleven.AUDIO_PLAYER" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.PICK" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <category
+                    android:name="android.intent.category.OPENABLE" />
+                <data
+                    android:mimeType="vnd.android.cursor.dir/audio" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.AlbumDetailActivity" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.ArtistDetailActivity" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.GenreDetailActivity" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.PlaylistDetailActivity" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.tageditor.SongTagEditorActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.tageditor.AlbumTagEditorActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.SearchActivity" />
+        <activity
+            android:label="@string/action_settings"
+            android:name="com.kabouzeid.gramophone.ui.activities.SettingsActivity" />
+        <activity
+            android:label="@string/action_about"
+            android:name="com.kabouzeid.gramophone.ui.activities.AboutActivity" />
+        <activity
+            android:theme="@style/Theme.Intro"
+            android:label="@string/intro_label"
+            android:name="com.kabouzeid.gramophone.ui.activities.intro.AppIntroActivity" />
+        <activity
+            android:label="@string/report_an_issue"
+            android:name="com.kabouzeid.gramophone.ui.activities.bugreport.BugReportActivity" />
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.kabouzeid.gramophone.appshortcuts.AppShortcutLauncherActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.kabouzeid.gramophone.ui.activities.PurchaseActivity" />
+        <service
+            android:name="com.kabouzeid.gramophone.service.MusicService"
+            android:enabled="true" />
+        <receiver
+            android:name="com.kabouzeid.gramophone.service.MediaButtonIntentReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+        <meta-data
+            android:name="com.lge.support.SPLIT_WINDOW"
+            android:value="true" />
+        <meta-data
+            android:name="com.kabouzeid.gramophone.glide.PhonographGlideModule"
+            android:value="GlideModule" />
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
+        <receiver
+            android:name="com.kabouzeid.gramophone.appwidgets.BootReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED" />
+                <action
+                    android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:label="@string/app_widget_big_name"
+            android:name="com.kabouzeid.gramophone.appwidgets.AppWidgetBig"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_big_info" />
+        </receiver>
+        <receiver
+            android:label="@string/app_widget_classic_name"
+            android:name="com.kabouzeid.gramophone.appwidgets.AppWidgetClassic"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_classic_info" />
+        </receiver>
+        <receiver
+            android:label="@string/app_widget_small_name"
+            android:name="com.kabouzeid.gramophone.appwidgets.AppWidgetSmall"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_small_info" />
+        </receiver>
+        <receiver
+            android:label="@string/app_widget_card_name"
+            android:name="com.kabouzeid.gramophone.appwidgets.AppWidgetCard"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_card_info" />
+        </receiver>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:authorities="com.oxxygenr.namusic"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+            android:name="com.kabouzeid.appthemehelper.common.ATHToolbarActivity" />
+        <activity
+            android:name="com.kabouzeid.appthemehelper.ATHActivity" />
+        <activity
+            android:name="com.kabouzeid.appthemehelper.common.ATHActionBarActivity" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="com.oxxygenr.namusic.lifecycle-process" />
+        <meta-data
+            android:name="com.google.android.play.billingclient.version"
+            android:value="4.0.0" />
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.android.billingclient.api.ProxyBillingActivity"
+            android:exported="false"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
+    </application>
+</manifest>
